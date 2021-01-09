@@ -1,9 +1,8 @@
 from cv2 import cv2
 import numpy as np
 img=cv2.imread("Resources/Data/lena.png")
-(height,width)=img.shape[:2]
-cv2.imshow("Original",img)
-translation_matrix=np.float32([[1,0,70],[0,1,110]])
-translation=cv2.warpAffine(img,translation_matrix,(height,width))
-cv2.imshow("Translated",translation)
+rows,cols=img.shape[0],img.shape[1]
+m=np.float32([[1,0,100],[0,1,50]])
+dst=cv2.warpAffine(img,m,(rows,cols))
+cv2.imshow("Translated Image",dst)
 cv2.waitKey()
